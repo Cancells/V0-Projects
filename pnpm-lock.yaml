@@ -1,5 +1,5 @@
-- name: Setup pnpm
-  uses: pnpm/action-setup@v4.1.0
+name: Setup pnpm
+uses: pnpm/action-setup@v4.1.0
 
 lockfileVersion: '9.0'
 
