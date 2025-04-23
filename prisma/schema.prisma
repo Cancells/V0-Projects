@@ -17,15 +17,11 @@ model User {
   emailVerified DateTime?
   image         String?
   password      String?
+  role          String?   @default("USER")
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
-  orders        Order[]
-  reviews       Review[]
-  cart          Cart?
-  wishlist      Wishlist?
-  addresses     Address[]
 }
 
 model Account {

@@ -1,19 +1,19 @@
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import type { NextAuthOptions } from "next-auth"
-import { db } from "@/lib/db"
 import CredentialsProvider from "next-auth/providers/credentials"
 import GoogleProvider from "next-auth/providers/google"
 import bcrypt from "bcryptjs"
 
+import { db } from "@/lib/db"
+
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(db),
+  // Use the Prisma adapter only in production to avoid issues during build
+  adapter: process.env.NODE_ENV === "production" ? PrismaAdapter(db) : undefined,
   session: {
     strategy: "jwt",
   },
   pages: {
     signIn: "/login",
-    signOut: "/",
-    error: "/error",
   },
   providers: [
     GoogleProvider({
@@ -27,31 +27,36 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error("Invalid credentials")
-        }
+        try {
+          if (!credentials?.email || !credentials?.password) {
+            return null
+          }
 
-        const user = await db.user.findUnique({
-          where: {
-            email: credentials.email,
-          },
-        })
+          const user = await db.user.findUnique({
+            where: {
+              email: credentials.email,
+            },
+          })
 
-        if (!user || !user.password) {
-          throw new Error("User not found")
-        }
+          if (!user || !user.password) {
+            return null
+          }
 
-        const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
+          const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
 
-        if (!isPasswordValid) {
-          throw new Error("Invalid password")
-        }
+          if (!isPasswordValid) {
+            return null
+          }
 
-        return {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          image: user.image,
+          return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            image: user.image,
+          }
+        } catch (error) {
+          console.error("Auth error:", error)
+          return null
         }
       },
     }),
@@ -64,29 +69,38 @@ export const authOptions: NextAuthOptions = {
         session.user.email = token.email
         session.user.image = token.picture
       }
-
       return session
     },
     async jwt({ token, user }) {
-      const dbUser = await db.user.findFirst({
-        where: {
-          email: token.email!,
-        },
-      })
-
-      if (!dbUser) {
-        if (user) {
-          token.id = user.id
+      try {
+        if (!token.email) {
+          return token
         }
-        return token
-      }
 
-      return {
-        id: dbUser.id,
-        name: dbUser.name,
-        email: dbUser.email,
-        picture: dbUser.image,
+        const dbUser = await db.user.findFirst({
+          where: {
+            email: token.email,
+          },
+        })
+
+        if (!dbUser) {
+          if (user) {
+            token.id = user.id
+          }
+          return token
+        }
+
+        return {
+          id: dbUser.id,
+          name: dbUser.name,
+          email: dbUser.email,
+          picture: dbUser.image,
+        }
+      } catch (error) {
+        console.error("JWT error:", error)
+        return token
       }
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
 }
