@@ -62,11 +62,10 @@
     "@auth/core": "latest",
     "nodemailer": "latest",
     "prisma": "latest",
-    "@prisma/client": "latest",
     "framer-motion": "latest",
     "bcryptjs": "latest",
     "next-auth": "latest",
-    "@auth/prisma-adapter": "latest"
+    "@prisma/client": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",
