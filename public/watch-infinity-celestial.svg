@@ -1,0 +1,61 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dialGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="100%" stop-color="#000D20" />
+    </linearGradient>
+    <linearGradient id="caseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#303540" />
+      <stop offset="100%" stop-color="#101520" />
+    </linearGradient>
+    <radialGradient id="starsGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#000D30" />
+      <stop offset="100%" stop-color="#000010" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Watch Case -->
+  <circle cx="300" cy="300" r="220" fill="url(#caseGradient)" stroke="#444" stroke-width="8" />
+  
+  <!-- Watch Dial (Night Sky) -->
+  <circle cx="300" cy="300" r="200" fill="url(#starsGradient)" stroke="#333" stroke-width="2" />
+  
+  <!-- Stars -->
+  <g id="stars">
+    <circle cx="240" cy="180" r="1" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="270" cy="200" r="1" fill="#FFFFFF" opacity="0.7" />
+    <circle cx="320" cy="170" r="1.5" fill="#FFFFFF" opacity="0.9" />
+    <circle cx="350" cy="210" r="1" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="380" cy="240" r="1" fill="#FFFFFF" opacity="0.7" />
+    <circle cx="330" cy="260" r="1" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="290" cy="240" r="1" fill="#FFFFFF" opacity="0.7" />
+    <circle cx="240" cy="270" r="1.5" fill="#FFFFFF" opacity="0.9" />
+    <circle cx="210" cy="230" r="1" fill="#FFFFFF" opacity="0.8" />
+  </g>
+  
+  <!-- Moon -->
+  <circle cx="370" cy="180" r="25" fill="#555555" stroke="#777777" stroke-width="1" />
+  <circle cx="360" cy="170" r="8" fill="#444444" />
+  <circle cx="385" cy="185" r="5" fill="#444444" />
+  
+  <!-- Watch Hands -->
+  <line x1="300" y1="300" x2="300" y2="180" stroke="#FFFFFF" stroke-width="2" />
+  <line x1="300" y1="300" x2="400" y2="300" stroke="#FFFFFF" stroke-width="2" />
+  <line x1="300" y1="300" x2="270" y2="230" stroke="#33CCFF" stroke-width="1.5" />
+  
+  <!-- Solar System Center -->
+  <circle cx="300" cy="300" r="8" fill="#FFCC44" opacity="0.6" />
+  <circle cx="300" cy="300" r="4" fill="#FFCC44" opacity="0.9" />
+  
+  <!-- Watch Brand -->
+  <text x="300" y="220" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">CHRONO 2030</text>
+  
+  <!-- Watch Model -->
+  <text x="300" y="380" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" opacity="0.8">INFINITY CELESTIAL</text>
+  
+  <!-- Watch Strap Top -->
+  <path d="M 200 110 Q 300 50, 400 110 Q 400 130, 300 150 Q 200 130, 200 110 Z" fill="#101520" stroke="#444" stroke-width="2" />
+  
+  <!-- Watch Strap Bottom -->
+  <path d="M 200 490 Q 300 550, 400 490 Q 400 470, 300 450 Q 200 470, 200 490 Z" fill="#101520" stroke="#444" stroke-width="2" />
+</svg>

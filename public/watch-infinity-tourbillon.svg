@@ -1,0 +1,57 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="caseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#303540" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#101520" stop-opacity="0.6" />
+    </linearGradient>
+    <radialGradient id="crystalGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.1" />
+      <stop offset="85%" stop-color="#FFFFFF" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.15" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Transparent Crystal Case -->
+  <circle cx="300" cy="300" r="220" fill="url(#crystalGradient)" stroke="#DDDDDD" stroke-width="2" opacity="0.3" />
+  
+  <!-- Platinum Ring -->
+  <circle cx="300" cy="300" r="210" fill="none" stroke="#CCCCCC" stroke-width="8" opacity="0.6" />
+  
+  <!-- Tourbillon Mechanism - Outer -->
+  <circle cx="300" cy="300" r="120" fill="none" stroke="#999" stroke-width="2" opacity="0.8" />
+  <circle cx="300" cy="300" r="100" fill="none" stroke="#888" stroke-width="1" />
+  
+  <!-- Tourbillon Cage -->
+  <g transform="translate(300, 300) rotate(30)">
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#DDDDDD" stroke-width="3" opacity="0.8" />
+    <circle cx="0" cy="0" r="38" fill="none" stroke="#CCCCCC" stroke-width="1" opacity="0.8" />
+    <line x1="-40" y1="0" x2="40" y2="0" stroke="#DDDDDD" stroke-width="1" opacity="0.6" />
+    <line x1="0" y1="-40" x2="0" y2="40" stroke="#DDDDDD" stroke-width="1" opacity="0.6" />
+  </g>
+  
+  <!-- Floating Balance Wheel -->
+  <circle cx="300" cy="300" r="25" fill="none" stroke="#EEEEEE" stroke-width="2" />
+  <circle cx="300" cy="300" r="15" fill="#00CCFF" opacity="0.2" />
+  
+  <!-- Quantum Core Element -->
+  <circle cx="300" cy="300" r="8" fill="#00CCFF" opacity="0.8" />
+  
+  <!-- Watch Hands -->
+  <line x1="300" y1="300" x2="300" y2="200" stroke="#FFFFFF" stroke-width="2" />
+  <line x1="300" y1="300" x2="380" y2="300" stroke="#FFFFFF" stroke-width="2" />
+  
+  <!-- Watch Brand - Very Subtle -->
+  <text x="300" y="230" font-family="Arial, sans-serif" font-size="16" fill="#EEEEEE" text-anchor="middle" opacity="0.7" font-weight="bold">CHRONO 2030</text>
+  
+  <!-- Watch Model -->
+  <text x="300" y="380" font-family="Arial, sans-serif" font-size="14" fill="#EEEEEE" text-anchor="middle" opacity="0.7">INFINITY TOURBILLON</text>
+  
+  <!-- Limited Edition Number -->
+  <text x="300" y="400" font-family="Arial, sans-serif" font-size="10" fill="#CCCCCC" text-anchor="middle" opacity="0.7">LIMITED EDITION 7/30</text>
+  
+  <!-- Watch Strap Top -->
+  <path d="M 200 110 Q 300 50, 400 110 Q 400 130, 300 150 Q 200 130, 200 110 Z" fill="#CCCCCC" stroke="#EEEEEE" stroke-width="1" opacity="0.5" />
+  
+  <!-- Watch Strap Bottom -->
+  <path d="M 200 490 Q 300 550, 400 490 Q 400 470, 300 450 Q 200 470, 200 490 Z" fill="#CCCCCC" stroke="#EEEEEE" stroke-width="1" opacity="0.5" />
+</svg>

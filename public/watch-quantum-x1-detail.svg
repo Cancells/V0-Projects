@@ -1,0 +1,57 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dialGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000C20" />
+      <stop offset="100%" stop-color="#001C40" />
+    </linearGradient>
+    <linearGradient id="caseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#303540" />
+      <stop offset="100%" stop-color="#101520" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Gradient -->
+  <rect width="800" height="800" fill="#050505" />
+  
+  <!-- Watch Close-up Detail-->
+  <g transform="translate(400, 400) scale(1.5)">
+    <!-- Watch Case Section -->
+    <path d="M -120 -20 L -80 -50 L 80 -50 L 120 -20 L 120 20 L 80 50 L -80 50 L -120 20 Z" fill="url(#caseGradient)" stroke="#444" stroke-width="4" />
+    
+    <!-- Watch Dial Section -->
+    <rect x="-80" y="-40" width="160" height="80" fill="url(#dialGradient)" stroke="#666" stroke-width="2" />
+    
+    <!-- Holographic Display Elements -->
+    <g opacity="0.7">
+      <path d="M -60 -10 L -20 -30 L 20 -20 L 60 -10" fill="none" stroke="#00CCFF" stroke-width="1" />
+      <path d="M -60 0 L -30 10 L 0 5 L 30 15 L 60 5" fill="none" stroke="#00CCFF" stroke-width="1" />
+      <path d="M -60 10 L -40 20 L 0 15 L 40 25 L 60 15" fill="none" stroke="#00CCFF" stroke-width="1" />
+    </g>
+    
+    <!-- Holographic Data Points -->
+    <circle cx="-40" cy="-20" r="3" fill="#00CCFF" opacity="0.9" />
+    <circle cx="0" cy="-10" r="3" fill="#FF00CC" opacity="0.9" />
+    <circle cx="40" cy="-20" r="3" fill="#00CCFF" opacity="0.9" />
+    
+    <!-- Quantum Core Indicator -->
+    <circle cx="0" cy="0" r="10" fill="#00CCFF" opacity="0.3" />
+    <circle cx="0" cy="0" r="5" fill="#00CCFF" opacity="0.6" />
+    
+    <!-- Watch Detail Labels -->
+    <text x="-70" y="-25" font-family="Arial, sans-serif" font-size="8" fill="#FFFFFF" opacity="0.9">QUANTUM CORE</text>
+    <text x="30" y="25" font-family="Arial, sans-serif" font-size="8" fill="#FFFFFF" opacity="0.9">HOLOGRAPHIC</text>
+  </g>
+  
+  <!-- Product Labels -->
+  <text x="400" y="100" font-family="Arial, sans-serif" font-size="28" fill="#FFFFFF" text-anchor="middle" font-weight="bold">QUANTUM CHRONOGRAPH X1</text>
+  <text x="400" y="140" font-family="Arial, sans-serif" font-size="18" fill="#00CCFF" text-anchor="middle">HOLOGRAPHIC DISPLAY DETAIL</text>
+  
+  <!-- Technical Specs -->
+  <text x="100" y="700" font-family="Arial, sans-serif" font-size="14" fill="#CCCCCC">• Quantum Core Technology</text>
+  <text x="100" y="725" font-family="Arial, sans-serif" font-size="14" fill="#CCCCCC">• 3D Holographic Interface</text>
+  <text x="100" y="750" font-family="Arial, sans-serif" font-size="14" fill="#CCCCCC">• Neural Connection Ready</text>
+  
+  <text x="400" y="700" font-family="Arial, sans-serif" font-size="14" fill="#CCCCCC">• Self-Sustaining Power</text>
+  <text x="400" y="725" font-family="Arial, sans-serif" font-size="14" fill="#CCCCCC">• Aerospace-Grade Titanium</text>
+  <text x="400" y="750" font-family="Arial, sans-serif" font-size="14" fill="#CCCCCC">• 500m Water Resistant</text>
+</svg>

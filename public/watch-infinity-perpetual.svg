@@ -1,0 +1,56 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dialGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#222222" />
+      <stop offset="100%" stop-color="#111111" />
+    </linearGradient>
+    <linearGradient id="caseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#444444" />
+      <stop offset="100%" stop-color="#222222" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Watch Case -->
+  <circle cx="300" cy="300" r="220" fill="url(#caseGradient)" stroke="#555" stroke-width="8" />
+  
+  <!-- Calendar Subdials -->
+  <circle cx="370" cy="300" r="50" fill="#111111" stroke="#666" stroke-width="1" />
+  <text x="370" y="290" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">DATE</text>
+  <text x="370" y="310" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="bold">28</text>
+  
+  <circle cx="300" cy="370" r="50" fill="#111111" stroke="#666" stroke-width="1" />
+  <text x="300" y="360" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">MONTH</text>
+  <text x="300" y="380" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="bold">VI</text>
+  
+  <circle cx="230" cy="300" r="50" fill="#111111" stroke="#666" stroke-width="1" />
+  <text x="230" y="290" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">DAY</text>
+  <text x="230" y="310" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">FRI</text>
+  
+  <circle cx="300" cy="230" r="50" fill="#111111" stroke="#666" stroke-width="1" />
+  <text x="300" y="220" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">YEAR</text>
+  <text x="300" y="240" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="bold">2030</text>
+  
+  <!-- Watch Hands -->
+  <line x1="300" y1="300" x2="300" y2="180" stroke="#CCCCCC" stroke-width="2" />
+  <line x1="300" y1="300" x2="390" y2="300" stroke="#CCCCCC" stroke-width="2" />
+  <line x1="300" y1="300" x2="270" y2="240" stroke="#00CCFF" stroke-width="1" />
+  
+  <!-- Watch Center -->
+  <circle cx="300" cy="300" r="10" fill="#CCCCCC" />
+  <circle cx="300" cy="300" r="6" fill="#00CCFF" opacity="0.6" />
+  
+  <!-- Watch Brand -->
+  <text x="300" y="150" font-family="Arial, sans-serif" font-size="16" fill="#CCCCCC" text-anchor="middle" font-weight="bold">CHRONO 2030</text>
+  
+  <!-- Watch Model -->
+  <text x="300" y="440" font-family="Arial, sans-serif" font-size="14" fill="#CCCCCC" text-anchor="middle">INFINITY PERPETUAL</text>
+  
+  <!-- Watch Strap Top -->
+  <path d="M 200 110 Q 300 50, 400 110 Q 400 130, 300 150 Q 200 130, 200 110 Z" fill="#222222" stroke="#555" stroke-width="2" />
+  
+  <!-- Watch Strap Bottom -->
+  <path d="M 200 490 Q 300 550, 400 490 Q 400 470, 300 450 Q 200 470, 200 490 Z" fill="#222222" stroke="#555" stroke-width="2" />
+  
+  <!-- Limited Edition Indicator -->
+  <text x="300" y="460" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">LIMITED EDITION 03/50</text>
+</svg>

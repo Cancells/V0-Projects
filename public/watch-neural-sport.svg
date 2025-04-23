@@ -1,0 +1,42 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dialGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111111" />
+      <stop offset="100%" stop-color="#222222" />
+    </linearGradient>
+    <linearGradient id="caseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#333333" />
+      <stop offset="100%" stop-color="#222222" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Watch Case -->
+  <rect x="130" y="130" width="340" height="340" rx="170" fill="url(#caseGradient)" stroke="#444" stroke-width="6" />
+  
+  <!-- Watch Dial -->
+  <circle cx="300" cy="300" r="160" fill="url(#dialGradient)" stroke="#333" stroke-width="2" />
+  
+  <!-- Sport Tracking Ring -->
+  <circle cx="300" cy="300" r="140" fill="none" stroke="#00CC77" stroke-width="10" stroke-dasharray="700, 180" opacity="0.7" />
+  
+  <!-- Digital Displays -->
+  <rect x="220" y="200" width="160" height="40" rx="5" fill="#000000" stroke="#333" stroke-width="1" />
+  <text x="300" y="228" font-family="Arial, sans-serif" font-size="24" fill="#00CC77" text-anchor="middle" font-weight="bold">10:28</text>
+  
+  <!-- Activity Stats -->
+  <rect x="240" y="250" width="120" height="25" rx="3" fill="#000000" stroke="#333" stroke-width="1" />
+  <text x="260" y="267" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="start">Steps</text>
+  <text x="340" y="267" font-family="Arial, sans-serif" font-size="14" fill="#00CC77" text-anchor="end">9,842</text>
+  
+  <!-- Watch Brand -->
+  <text x="300" y="390" font-family="Arial, sans-serif" font-size="14" fill="#666666" text-anchor="middle" font-weight="bold">CHRONO 2030</text>
+  
+  <!-- Watch Model -->
+  <text x="300" y="410" font-family="Arial, sans-serif" font-size="12" fill="#9944CC" text-anchor="middle">NEURAL SPORT</text>
+  
+  <!-- Watch Strap Top -->
+  <path d="M 230 130 Q 300 80, 370 130 L 370 130 Q 320 100, 280 130 Z" fill="#222222" stroke="#333" stroke-width="1" />
+  
+  <!-- Watch Strap Bottom -->
+  <path d="M 230 470 Q 300 520, 370 470 L 370 470 Q 320 500, 280 470 Z" fill="#222222" stroke="#333" stroke-width="1" />
+</svg>

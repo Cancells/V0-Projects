@@ -1,0 +1,49 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dialGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101010" />
+      <stop offset="100%" stop-color="#202020" />
+    </linearGradient>
+    <linearGradient id="caseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#303030" />
+      <stop offset="100%" stop-color="#111111" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Watch Case -->
+  <rect x="110" y="140" width="380" height="320" rx="20" fill="url(#caseGradient)" stroke="#444" stroke-width="6" />
+  
+  <!-- Watch Dial -->
+  <rect x="130" y="160" width="340" height="280" rx="10" fill="url(#dialGradient)" stroke="#333" stroke-width="2" />
+  
+  <!-- Neural Interface Pattern -->
+  <g opacity="0.3">
+    <path d="M 150 250 Q 200 200, 300 230 Q 400 260, 450 220" fill="none" stroke="#AA00FF" stroke-width="1" />
+    <path d="M 150 270 Q 220 300, 300 280 Q 380 260, 450 280" fill="none" stroke="#AA00FF" stroke-width="1" />
+    <path d="M 150 290 Q 250 250, 300 320 Q 350 390, 450 340" fill="none" stroke="#AA00FF" stroke-width="1" />
+  </g>
+  
+  <!-- Neural Node Points -->
+  <circle cx="200" cy="220" r="5" fill="#AA00FF" />
+  <circle cx="280" cy="250" r="5" fill="#AA00FF" />
+  <circle cx="350" cy="220" r="5" fill="#AA00FF" />
+  <circle cx="240" cy="300" r="5" fill="#AA00FF" />
+  <circle cx="320" cy="340" r="5" fill="#AA00FF" />
+  <circle cx="400" cy="280" r="5" fill="#AA00FF" />
+  
+  <!-- Digital Time Display -->
+  <rect x="200" y="180" width="200" height="40" rx="5" fill="#000000" stroke="#333" stroke-width="1" />
+  <text x="300" y="210" font-family="Arial, sans-serif" font-size="28" fill="#AA00FF" text-anchor="middle" font-weight="bold">10:28</text>
+  
+  <!-- Watch Brand -->
+  <text x="300" y="290" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="bold">CHRONO 2030</text>
+  
+  <!-- Watch Model -->
+  <text x="300" y="320" font-family="Arial, sans-serif" font-size="16" fill="#AA00FF" text-anchor="middle">NEURAL COMMANDER</text>
+  
+  <!-- Watch Strap Top -->
+  <path d="M 200 140 Q 300 80, 400 140 L 380 140 Q 300 100, 220 140 Z" fill="#101010" stroke="#333" stroke-width="1" />
+  
+  <!-- Watch Strap Bottom -->
+  <path d="M 200 460 Q 300 520, 400 460 L 380 460 Q 300 500, 220 460 Z" fill="#101010" stroke="#333" stroke-width="1" />
+</svg>
