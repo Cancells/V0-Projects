@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
-import { ShoppingBag, User } from "lucide-react"
+import { ArrowRight, ShoppingBag, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 // Animation variants
@@ -288,4 +288,369 @@ export default function HomePage() {
                   variants={cardVariants}
                   whileHover="hover"
                   className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gray-900/50 backdrop-blur-sm transition-all hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20"
-\
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="aspect-square overflow-hidden">
+                    <Image
+                      src={`/placeholder.svg?height=600&width=600&text=Luxury+Watch+${item}`}
+                      alt={`Luxury watch ${item}`}
+                      width={600}
+                      height={600}
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2">Quantum Chronograph {item}</h3>
+                    <p className="text-gray-400 mb-4">Holographic display with quantum precision movement</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xl font-bold text-cyan-400">${(15000 + item * 2500).toLocaleString()}</span>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="rounded-full hover:bg-cyan-500/20 hover:text-cyan-400 group-hover:translate-x-1 transition-transform"
+                      >
+                        Details <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              animate={featuredInView ? "visible" : "hidden"}
+              variants={fadeIn}
+              className="mt-12 text-center"
+            >
+              <Link href="/collections">
+                <Button className="bg-white/10 hover:bg-white/20 rounded-full px-8 py-6">
+                  View All Collections <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Innovation Section */}
+        <section ref={innovationRef} className="py-24 bg-black">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <motion.div initial="hidden" animate={innovationInView ? "visible" : "hidden"} variants={fadeInLeft}>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+                    Quantum Precision Technology
+                  </span>
+                </h2>
+                <p className="text-gray-300 mb-6">
+                  Our proprietary Quantum Core movement achieves accuracy to within 0.0000001 seconds per year,
+                  utilizing principles of quantum entanglement to synchronize with atomic clocks worldwide.
+                </p>
+                <motion.ul
+                  initial="hidden"
+                  animate={innovationInView ? "visible" : "hidden"}
+                  variants={staggerContainer}
+                  className="space-y-4 mb-8"
+                >
+                  {[
+                    "Holographic displays",
+                    "Biometric authentication",
+                    "Self-sustaining power",
+                    "Neural interface",
+                  ].map((feature, index) => (
+                    <motion.li key={index} variants={fadeIn} className="flex items-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={innovationInView ? { scale: 1 } : { scale: 0 }}
+                        transition={{ delay: index * 0.1 + 0.3 }}
+                        className="h-2 w-2 rounded-full bg-cyan-400 mr-3"
+                      ></motion.div>
+                      <span>{feature}</span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+                <Button className="rounded-full px-8 py-6 bg-white/10 hover:bg-white/20 border border-white/20">
+                  Discover Our Technology
+                </Button>
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                animate={innovationInView ? "visible" : "hidden"}
+                variants={fadeInRight}
+                className="relative"
+              >
+                <motion.div
+                  animate={{
+                    opacity: [0.5, 0.8, 0.5],
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatType: "reverse",
+                  }}
+                  className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-600/20 blur-xl"
+                ></motion.div>
+                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                  <Image
+                    src="/placeholder.svg?height=800&width=800&text=Watch+Technology"
+                    alt="Watch technology"
+                    width={800}
+                    height={800}
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section ref={testimonialsRef} className="py-24 bg-gradient-to-b from-gray-900 to-black">
+          <div className="container mx-auto px-4">
+            <motion.h2
+              initial="hidden"
+              animate={testimonialsInView ? "visible" : "hidden"}
+              variants={fadeIn}
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+            >
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+                What Our Clients Say
+              </span>
+            </motion.h2>
+            <motion.div
+              initial="hidden"
+              animate={testimonialsInView ? "visible" : "hidden"}
+              variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {[
+                {
+                  name: "Alexander Chen",
+                  title: "Tech Entrepreneur",
+                  quote:
+                    "The neural interface on my Quantum Chronograph has revolutionized how I interact with time itself.",
+                },
+                {
+                  name: "Sophia Nakamura",
+                  title: "Quantum Physicist",
+                  quote:
+                    "As someone who works with quantum mechanics daily, I appreciate the true innovation behind these timepieces.",
+                },
+                {
+                  name: "Marcus Williams",
+                  title: "Space Tourism Pioneer",
+                  quote: "The only watch that maintains perfect accuracy whether I'm on Earth or orbiting Mars.",
+                },
+              ].map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  whileHover={{ y: -10 }}
+                  className="rounded-2xl border border-white/10 bg-gray-900/50 backdrop-blur-sm p-8 hover:border-purple-500/50 transition-all"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={testimonialsInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                    transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
+                    className="flex items-center mb-6"
+                  >
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 mr-4"></div>
+                    <div>
+                      <h3 className="font-bold">{testimonial.name}</h3>
+                      <p className="text-sm text-gray-400">{testimonial.title}</p>
+                    </div>
+                  </motion.div>
+                  <p className="text-gray-300">"{testimonial.quote}"</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section ref={ctaRef} className="py-24 bg-black relative overflow-hidden">
+          <motion.div
+            animate={{
+              opacity: [0.2, 0.4, 0.2],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
+            }}
+            className="absolute inset-0 bg-gradient-to-r from-cyan-900/20 to-purple-900/20"
+          ></motion.div>
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              initial="hidden"
+              animate={ctaInView ? "visible" : "hidden"}
+              variants={fadeIn}
+              className="max-w-3xl mx-auto text-center"
+            >
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+                  The Future Awaits
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Join the waitlist for our limited edition Quantum Infinity collection, launching next month.
+              </p>
+              <motion.div
+                initial="hidden"
+                animate={ctaInView ? "visible" : "hidden"}
+                variants={staggerContainer}
+                className="flex flex-col sm:flex-row justify-center gap-4"
+              >
+                <motion.div variants={fadeIn}>
+                  <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white border-0 rounded-full px-8 py-6">
+                    Reserve Now
+                  </Button>
+                </motion.div>
+                <motion.div variants={fadeIn}>
+                  <Link href="/signup">
+                    <Button variant="outline" className="border-white/20 hover:bg-white/10 rounded-full px-8 py-6">
+                      Create Account
+                    </Button>
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Animated particles */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            {[...Array(15)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-purple-500/20"
+                style={{
+                  width: Math.random() * 15 + 5,
+                  height: Math.random() * 15 + 5,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [0, Math.random() * -150 - 50],
+                  x: [0, Math.random() * 100 - 50],
+                  opacity: [0, 0.5, 0],
+                }}
+                transition={{
+                  duration: Math.random() * 8 + 5,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                  delay: Math.random() * 5,
+                }}
+              />
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-black border-t border-white/10 py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <Link href="/" className="text-2xl font-bold tracking-tighter">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
+                  CHRONO 2030
+                </span>
+              </Link>
+              <p className="mt-4 text-gray-400">Redefining luxury timepieces for the quantum age.</p>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4">Collections</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/collections" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Quantum Series
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/collections" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Neural Collection
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/collections" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Infinity Line
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/collections" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Limited Editions
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/about" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Innovation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Sustainability
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4">Support</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/faq" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Shipping
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Returns
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Warranty
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">&copy; {new Date().getFullYear()} Chrono 2030. All rights reserved.</p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link href="/privacy" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                Privacy
+              </Link>
+              <Link href="/terms" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                Terms
+              </Link>
+              <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                Cookies
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}

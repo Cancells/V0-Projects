@@ -13,19 +13,19 @@ datasource db {
 model User {
   id            String    @id @default(cuid())
   name          String?
-  email         String    @unique
+  email         String?   @unique
   emailVerified DateTime?
   image         String?
   password      String?
-  role          UserRole  @default(USER)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
   orders        Order[]
   reviews       Review[]
-  wishlist      WishlistItem[]
-  cart          CartItem[]
+  cart          Cart?
+  wishlist      Wishlist?
+  addresses     Address[]
 }
 
 model Account {
@@ -64,100 +64,130 @@ model VerificationToken {
 }
 
 model Product {
-  id              String        @id @default(cuid())
-  name            String
-  description     String        @db.Text
-  longDescription String?       @db.Text
-  price           Decimal       @db.Decimal(10, 2)
-  images          String[]
-  features        String[]
-  colors          String[]
-  isNew           Boolean       @default(false)
-  inStock         Boolean       @default(true)
-  collectionId    String
-  collection      Collection    @relation(fields: [collectionId], references: [id])
-  specifications  Json?
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-  reviews         Review[]
-  orderItems      OrderItem[]
-  wishlistItems   WishlistItem[]
-  cartItems       CartItem[]
+  id            String         @id @default(cuid())
+  name          String
+  description   String
+  longDescription String?      @db.Text
+  price         Decimal        @db.Decimal(10, 2)
+  images        String[]
+  features      String[]
+  specifications Json?
+  colors        String[]
+  isNew         Boolean        @default(false)
+  inStock       Boolean        @default(true)
+  collectionId  String
+  collection    Collection     @relation(fields: [collectionId], references: [id])
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  reviews       Review[]
+  cartItems     CartItem[]
+  wishlistItems WishlistItem[]
 }
 
 model Collection {
   id          String    @id @default(cuid())
   name        String
-  description String    @db.Text
+  description String
   products    Product[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
 
-model Order {
-  id            String      @id @default(cuid())
-  userId        String
-  user          User        @relation(fields: [userId], references: [id])
-  items         OrderItem[]
-  status        OrderStatus @default(PENDING)
-  total         Decimal     @db.Decimal(10, 2)
-  shippingInfo  Json
-  paymentInfo   Json?
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-}
-
-model OrderItem {
-  id        String  @id @default(cuid())
-  orderId   String
-  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  productId String
-  product   Product @relation(fields: [productId], references: [id])
-  quantity  Int
-  price     Decimal @db.Decimal(10, 2)
-  color     String?
-}
-
 model Review {
   id        String   @id @default(cuid())
+  rating    Int
+  comment   String?  @db.Text
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   productId String
   product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  rating    Int
-  comment   String   @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model WishlistItem {
-  id        String   @id @default(cuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  productId String
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
-
-  @@unique([userId, productId])
+model Cart {
+  id        String     @id @default(cuid())
+  userId    String     @unique
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CartItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
 
 model CartItem {
   id        String   @id @default(cuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quantity  Int
+  color     String?
+  cartId    String
+  cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
   productId String
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Wishlist {
+  id        String         @id @default(cuid())
+  userId    String         @unique
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     WishlistItem[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model WishlistItem {
+  id         String   @id @default(cuid())
+  wishlistId String
+  wishlist   Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Order {
+  id              String        @id @default(cuid())
+  userId          String
+  user            User          @relation(fields: [userId], references: [id])
+  items           OrderItem[]
+  status          OrderStatus   @default(PENDING)
+  total           Decimal       @db.Decimal(10, 2)
+  shippingAddress Address       @relation(fields: [addressId], references: [id])
+  addressId       String
+  paymentIntentId String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  name      String
+  price     Decimal  @db.Decimal(10, 2)
   quantity  Int
   color     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  @@unique([userId, productId, color])
 }
 
-enum UserRole {
-  USER
-  ADMIN
+model Address {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  line1     String
+  line2     String?
+  city      String
+  state     String
+  postalCode String
+  country   String
+  phone     String?
+  isDefault Boolean  @default(false)
+  orders    Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum OrderStatus {
