@@ -59,14 +59,14 @@
     "vaul": "^0.9.6",
     "zod": "^3.24.1",
     "@emotion/is-prop-valid": "latest",
-    "@prisma/client": "latest",
     "@auth/core": "latest",
     "nodemailer": "latest",
     "prisma": "latest",
+    "@prisma/client": "latest",
     "framer-motion": "latest",
-    "@auth/prisma-adapter": "latest",
+    "bcryptjs": "latest",
     "next-auth": "latest",
-    "bcryptjs": "latest"
+    "@auth/prisma-adapter": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",
