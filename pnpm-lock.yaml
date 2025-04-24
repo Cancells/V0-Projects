@@ -124,7 +124,7 @@ importers:
         version: 8.5.1(react@19.0.0)
       framer-motion:
         specifier: latest
-        version: 12.7.4(@emotion/is-prop-valid@1.3.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 12.8.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       input-otp:
         specifier: 1.4.1
         version: 1.4.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -177,8 +177,8 @@ importers:
         specifier: ^0.9.6
         version: 0.9.6(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       zod:
-        specifier: ^3.24.1
-        version: 3.24.1
+        specifier: latest
+        version: 3.24.3
     devDependencies:
       '@types/node':
         specifier: ^22
@@ -1533,8 +1533,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  electron-to-chromium@1.5.140:
-    resolution: {integrity: sha512-o82Rj+ONp4Ip7Cl1r7lrqx/pXhbp/lh9DpKcMNscFJdh8ebyRofnc7Sh01B4jx403RI0oqTBvlZ7OBIZLMr2+Q==}
+  electron-to-chromium@1.5.141:
+    resolution: {integrity: sha512-qS+qH9oqVYc1ooubTiB9l904WVyM6qNYxtOEEGReoZXw3xlqeYdFr5GclNzbkAufWgwWLEPoDi3d9MoRwwIjGw==}
 
   embla-carousel-react@8.5.1:
     resolution: {integrity: sha512-z9Y0K84BJvhChXgqn2CFYbfEi6AwEr+FFVVKm/MqbTQ2zIzO1VQri6w67LcfpVF0AjbhwVMywDZqY4alYkjW5w==}
@@ -1594,8 +1594,8 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
-  framer-motion@12.7.4:
-    resolution: {integrity: sha512-jX0bPsTmU0oPZTYz/dVyD0dmOyEOEJvdn0TaZBE5I8g2GvVnnQnW9f65cJnoVfUkY3WZWNXGXnPbVA9YnaIfVA==}
+  framer-motion@12.8.0:
+    resolution: {integrity: sha512-EarL75miCDcKLEAQLJ+6Zfwdj+KQsVlbHGGlygZ/TigKBj7NLPkyDKk4WLFUScjAs2xNpfMRLBM6VsCJq9Roxg==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -1744,11 +1744,11 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
-  motion-dom@12.7.4:
-    resolution: {integrity: sha512-1ZUHAoSUMMxP6jPqyxlk9XUfb6NxMsnWPnH2YGhrOhTURLcXWbETi6eemoKb60Pe32NVJYduL4B62VQSO5Jq8Q==}
+  motion-dom@12.8.0:
+    resolution: {integrity: sha512-YsfUE1F8Ycv9th1V0YJ6LOx9U2EMe/8P3RXK1o6NZhRbdFiWvzBLvxqp2X6Fn3rbJbwWkSEfnpe14ZU9Oz1d1Q==}
 
-  motion-utils@12.7.2:
-    resolution: {integrity: sha512-XhZwqctxyJs89oX00zn3OGCuIIpVevbTa+u82usWBC6pSHUd2AoNWiYa7Du8tJxJy9TFbZ82pcn5t7NOm1PHAw==}
+  motion-utils@12.7.5:
+    resolution: {integrity: sha512-JIgrmEq7Vw1x0AUrjvkRp7oMMQkGqSUMT50O/Ag6RRCQWG3gRRTkOI+BirBAJT6m+GIPoiyxkJ1u98GgF/a6TQ==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -2254,8 +2254,8 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
-  zod@3.24.1:
-    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+  zod@3.24.3:
+    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
 snapshots:
 
@@ -3343,7 +3343,7 @@ snapshots:
   browserslist@4.24.4:
     dependencies:
       caniuse-lite: 1.0.30001715
-      electron-to-chromium: 1.5.140
+      electron-to-chromium: 1.5.141
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
 
@@ -3483,7 +3483,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  electron-to-chromium@1.5.140: {}
+  electron-to-chromium@1.5.141: {}
 
   embla-carousel-react@8.5.1(react@19.0.0):
     dependencies:
@@ -3565,10 +3565,10 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
-  framer-motion@12.7.4(@emotion/is-prop-valid@1.3.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  framer-motion@12.8.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
-      motion-dom: 12.7.4
-      motion-utils: 12.7.2
+      motion-dom: 12.8.0
+      motion-utils: 12.7.5
       tslib: 2.8.1
     optionalDependencies:
       '@emotion/is-prop-valid': 1.3.1
@@ -3691,11 +3691,11 @@ snapshots:
 
   minipass@7.1.2: {}
 
-  motion-dom@12.7.4:
+  motion-dom@12.8.0:
     dependencies:
-      motion-utils: 12.7.2
+      motion-utils: 12.7.5
 
-  motion-utils@12.7.2: {}
+  motion-utils@12.7.5: {}
 
   ms@2.1.3: {}
 
@@ -4215,4 +4215,4 @@ snapshots:
 
   yaml@2.7.1: {}
 
-  zod@3.24.1: {}
+  zod@3.24.3: {}
